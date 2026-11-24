@@ -1,0 +1,5 @@
+CAIXA REVIEW BOARD — versão 6
+
+Extraia todo o ZIP e abra index.html no navegador.
+Inclui os 12 temas ilustrados, o logo, a fonte Smooch Sans e todos os arquivos necessários; não exige instalação nem conexão à internet.
+Os cards e o tema escolhido ficam salvos neste navegador. Não há compartilhamento em tempo real entre participantes.

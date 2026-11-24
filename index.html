@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caixa Review Board — Retrospectiva interativa</title>
+<meta name="description" content="Quadro interativo de retrospectiva para as reviews dos colaboradores Caixa.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="logo"><img src="assets/caixa-logo-original.png" alt="Caixa" width="270" height="150"></div>
+  <div class="title-wrap">
+    <input id="boardTitle" class="board-title" value="SICAQ – PI 04 Sprint 2" aria-label="Título do quadro">
+    <small>Review Board • arraste, vote e reaja!</small>
+  </div>
+  <div class="tools">
+    <input id="me" class="pill-input" placeholder="Seu nome" aria-label="Seu nome">
+    <input id="filter" class="pill-input" placeholder="🔍 filtrar cards" aria-label="Filtrar">
+    <label class="theme-control" for="themeSelect"><span>Fundo</span><select id="themeSelect" aria-label="Tema do plano de fundo"></select></label>
+    <button id="raffleBtn" class="btn ghost">🎲 Sorteio da Sprint</button>
+    <button id="exportBtn" class="btn ghost">⬇ Exportar</button>
+    <button id="resetBtn" class="btn ghost">🧹 Limpar</button>
+  </div>
+</header>
+
+<main id="board" class="board"></main>
+
+<div id="modal" class="modal" hidden>
+  <form id="form" class="sheet">
+    <h2 id="modalTitle">Novo card</h2>
+    <textarea id="text" maxlength="200" placeholder="Escreva sua ideia..." required></textarea>
+    <div class="colors" id="colors"></div>
+    <div class="row"><button type="button" class="btn ghost" id="cancel">Cancelar</button><button class="btn primary">Colar no quadro ✨</button></div>
+  </form>
+</div>
+<div id="raffle" class="modal" hidden>
+  <div class="sheet raffle">
+    <h2>🎲 Sorteio da Sprint</h2>
+    <form id="raffleForm" class="raffle-add"><input id="raffleName" placeholder="Nome do colaborador" maxlength="60" required><button class="btn primary">Adicionar</button></form>
+    <div class="raffle-result" id="raffleResult">Clique em sortear!</div>
+    <table class="raffle-table"><thead><tr><th>Status</th><th>Colaborador</th><th>Sorteado em</th><th></th></tr></thead><tbody id="raffleBody"></tbody></table>
+    <p class="raffle-hint">🔴 já sorteado · 🟢 disponível. Quando todos forem sorteados, a rodada recomeça.</p>
+    <div class="row"><button type="button" class="btn ghost dark" id="raffleReset">Nova rodada</button><button type="button" class="btn ghost dark" id="raffleClose">Fechar</button><button type="button" class="btn primary" id="raffleDraw">Sortear 🎉</button></div>
+  </div>
+</div>
+<div id="confetti"></div>
+<span id="themeStatus" class="sr-only" role="status" aria-live="polite"></span>
+<script src="themes.js"></script>
+<script src="app.js"></script>
+<script src="raffle.js"></script>
+</body>
+</html>
